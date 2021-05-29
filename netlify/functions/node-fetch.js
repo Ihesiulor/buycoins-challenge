@@ -2,8 +2,7 @@ const fetch = require("node-fetch");
 
 const API_ENDPOINT = "https://api.github.com/graphql";
 
-
-exports.handler = async (event, context) =>{
+exports.handler = async (event, context) => {
   let graphql = `
     query{
   user(login: "${event.rawQuery}") {
@@ -39,29 +38,33 @@ exports.handler = async (event, context) =>{
   }
 }
   `;
-  let response;
-  try {
-    response = await fetch(API_ENDPOINT, {
+  return new Promise((resolve, reject) => {
+    fetch(API_ENDPOINT, {
       method: "POST",
       body: JSON.stringify({ query: graphql }),
       headers: {
         Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
       },
-    });
-    // handle response
-  } catch (err) {
-    return {
-      statusCode: err.statusCode || 500,
-      body: JSON.stringify({
-        error: err.message,
-      }),
-    };
-  }
-
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      data: response,
-    }),
-  };
-}
+    })
+      .then((res) => {
+        if (res.ok) {
+          // res.status >= 200 && res.status < 300
+          return res.json();
+        } else {
+          resolve({ statusCode: res.status || 500, body: res.statusText });
+        }
+      })
+      .then((data) => {
+        const response = {
+          statusCode: 200,
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(data),
+        };
+        resolve(response);
+      })
+      .catch((err) => {
+        console.log(err);
+        resolve({ statusCode: err.statusCode || 500, body: err.message });
+      });
+  });
+};
