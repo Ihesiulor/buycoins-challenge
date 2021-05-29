@@ -2,7 +2,8 @@ const fetch = require("node-fetch");
 
 const API_ENDPOINT = "https://api.github.com/graphql";
 
-export async function handler(event, context) {
+
+exports.handler = async (event, context) =>{
   let graphql = `
     query{
   user(login: "${event.rawQuery}") {
