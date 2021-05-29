@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <title>Github Profiles</title>
+  </head>
+  <body>
+    <div class="relative h-screen w-full bg-gradient overflow-x-hidden">
+      <header
+        class="absolute w-full flex justify-between items-center px-1 py-0.5"
+      >
+        <div class="h-2 flex items-center text-sm text-gradient">
+          Github Profiles
+        </div>
+        <svg
+          id="toggle"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 16 16"
+          width="16"
+          height="16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"
+          ></path>
+        </svg>
+      </header>
+      <main
+        class="w-full h-full px-1 flex flex-col items-start justify-center gap-1.5"
+      >
+        <div class="md:w-4/5 lg:w-1/2 flex flex-col gap-1">
+          <p class="text-xl md:text-2xl">
+            Welcome to <span class="text-gradient">Github Profiles</span>
+          </p>
+          <span class="text-sm font-3 md:w-4/5 md:font-4">
+            Search for your favorite developers, and see what they are working
+            on.
+          </span>
+        </div>
+        <form action="/profile.html" id="form" class="flex">
+          <div class="search">
+            <input
+              id="search"
+              type="text"
+              placeholder="Search for profile"
+              aria-label="Search"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="mx-1"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.75 2.37a6.5 6.5 0 006.5 11.26.75.75 0 01.75 1.298 8 8 0 113.994-7.273.754.754 0 01.006.095v1.5a2.75 2.75 0 01-5.072 1.475A4 4 0 1112 8v1.25a1.25 1.25 0 002.5 0V7.867a6.5 6.5 0 00-9.75-5.496V2.37zM10.5 8a2.5 2.5 0 10-5 0 2.5 2.5 0 005 0z"
+              ></path>
+            </svg>
+          </div>
+        </form>
+      </main>
+      <div
+        id="menu"
+        class="absolute top-0 right-0 w-4/5 h-screen flex flex-col toggle-off text-gray-2 bg-white"
+      >
+        <!-- Menu -->
+        <div class="flex flex-col">
+          <div class="w-full py-1 flex justify-end border-b">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="currentColor"
+              class="mx-1"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.72 5.72a.75.75 0 011.06 0L12 10.94l5.22-5.22a.75.75 0 111.06 1.06L13.06 12l5.22 5.22a.75.75 0 11-1.06 1.06L12 13.06l-5.22 5.22a.75.75 0 01-1.06-1.06L10.94 12 5.72 6.78a.75.75 0 010-1.06z"
+              ></path>
+            </svg>
+          </div>
+          <div class="px-1 w-full flex flex-col">
+            <div class="w-full py-1 border-b text-sm font-3">
+              <span class="">Why GitHub</span>
+            </div>
+            <div class="w-full py-1 border-b text-sm font-3">
+              <span class="">Team</span>
+            </div>
+            <div class="w-full py-1 border-b text-sm font-3">
+              <span class="">Enterprise</span>
+            </div>
+            <div class="w-full py-1 border-b text-sm font-3">
+              <span class="">Explore</span>
+            </div>
+            <div class="w-full py-1 border-b text-sm font-3">
+              <span class="">Market Place</span>
+            </div>
+            <div class="w-full py-1 border-b text-sm font-3">
+              <span class="">Pricing</span>
+            </div>
+          </div>
+        </div>
+        <form id="search-menu" class="flex">
+          <div class="search">
+            <input
+              type="text"
+              placeholder="Search for profile"
+              aria-label="Search"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="mx-1"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.75 2.37a6.5 6.5 0 006.5 11.26.75.75 0 01.75 1.298 8 8 0 113.994-7.273.754.754 0 01.006.095v1.5a2.75 2.75 0 01-5.072 1.475A4 4 0 1112 8v1.25a1.25 1.25 0 002.5 0V7.867a6.5 6.5 0 00-9.75-5.496V2.37zM10.5 8a2.5 2.5 0 10-5 0 2.5 2.5 0 005 0z"
+              ></path>
+            </svg>
+          </div>
+        </form>
+      </div>
+      <footer class="px-1 md:py-1 flex flex-col md:flex-row md:justify-between">
+        <span class="">
+          <!-- Copyright -->
+          &copy 2021, Github Profiles
+        </span>
+        <span class="">
+          <!--  -->
+          Built with love and
+          <a href="https://www.github.com/ihesiulor">ofe egusi</a>
+        </span>
+      </footer>
+    </div>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
