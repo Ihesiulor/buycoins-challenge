@@ -25,6 +25,7 @@ const init = () => {
             form.action = "./404.html";
             form.submit();
           }
+          form.action = "./profile.html";
           setResult(json);
           form.submit();
         });
