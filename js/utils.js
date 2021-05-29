@@ -52,7 +52,7 @@ const repo = ({
 <div class="w-4/5 md:w-3/5 flex flex-col gap-0.5">
 <div class="">
 <!-- Name/URL -->
-<a class="text-sm font-6 break-all" href="${url}">${name}</a>
+<a class="text-sm font-6 break-all" target="_blank" href="${url}">${name}</a>
 </div>
 <div class="w-7/10">
 <!-- Description -->
