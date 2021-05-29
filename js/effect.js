@@ -22,14 +22,15 @@ const init = () => {
         .then((response) => response.json())
         .then((json) => {
           console.log(json);
-
-        //   if (json.errors) {
-        //     form.action = "./404.html";
-        //     form.submit();
-        //   }
-        //   form.action = "./profile.html";
-        //   setResult(json);
-        //   form.submit();
+          setResult(json);
+          if (json.errors) {
+            form.action = "./404.html";
+            return;
+          }
+          form.action = "./profile.html";
+        })
+        .finally(() => {
+          form.submit();
         });
     });
   }
