@@ -23,13 +23,13 @@ const init = () => {
         .then((json) => {
           console.log(json);
 
-          if (json.errors) {
-            form.action = "./404.html";
-            form.submit();
-          }
-          form.action = "./profile.html";
-          setResult(json);
-          form.submit();
+        //   if (json.errors) {
+        //     form.action = "./404.html";
+        //     form.submit();
+        //   }
+        //   form.action = "./profile.html";
+        //   setResult(json);
+        //   form.submit();
         });
     });
   }
