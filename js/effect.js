@@ -16,8 +16,16 @@ const init = () => {
     if (page === "/profile.html") {
       handleDisplay();
     }
-    if (toggle) {
+    if (toggle||toggleOff) {
       toggle.addEventListener("click", (e) => {
+        // e.preventDefault();
+        if (menu.style.transform === "translateX(101%)") {
+          menu.style.transform="translateX(0%)";
+        } else {
+          menu.style.transform = "translateX(101%)";
+        }
+      });
+            toggleOff.addEventListener("click", (e) => {
         // e.preventDefault();
         if (menu.style.transform === "translateX(101%)") {
           menu.style.transform="translateX(0%)";

@@ -5,6 +5,7 @@ export let image = document.getElementById("image");
 export let repos = document.getElementById("repos");
 export let menu = document.getElementById("menu");
 export let toggle = document.getElementById("toggle");
+export let toggleOff = document.getElementById("toggle-off");
 export let query = document.getElementById("search");
 export let formIndex = document.getElementById("form-index");
 export let formProfile = document.getElementById("form-profile");
