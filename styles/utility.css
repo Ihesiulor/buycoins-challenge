@@ -81,6 +81,9 @@
 .relative {
   position: relative;
 }
+.fixed {
+  position: fixed;
+}
 .top-0 {
   top: 0;
 }
@@ -142,6 +145,10 @@
 .my-2 {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+.my-3\.5 {
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
 }
 
 .justify-end {
@@ -316,6 +323,9 @@
 
   .md\:hiddden {
     display: none;
+  }
+  .md\:flex {
+    display: flex;
   }
 
   .md\:flex-col {
