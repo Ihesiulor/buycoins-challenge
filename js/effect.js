@@ -15,10 +15,8 @@ const init = () => {
     e.preventDefault();
     if (page === "/profile.html") {
       handleDisplay();
-    }
-
-    if (toggle) {
       toggle.addEventListner("click", (e) => {
+          e.preventDefault()
         if (menu.className === "toggle-off") {
           menu.className =
             "absolute top-0 right-0 w-4/5 h-screen flex md:hidden flex-col toggle-on bg-gray-2";
