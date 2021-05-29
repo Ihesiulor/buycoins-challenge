@@ -5,6 +5,9 @@
   "keywords": [],
   "author": "David Wells <hello@davidwells.io> (https://davidwells.io/)",
   "license": "MIT",
+  "scripts": {
+    "build": "npm init -y && npm i"
+  },
   "dependencies": {
     "node-fetch": "^2.3.0"
   }
