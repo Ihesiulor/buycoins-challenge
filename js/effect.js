@@ -19,10 +19,10 @@ const init = () => {
     if (toggle) {
       toggle.addEventListener("click", (e) => {
         // e.preventDefault();
-        if (menu.style.display === "none") {
-          menu.style.display = "flex";
+        if (menu.style.transform === "translateX(101%)") {
+          menu.style.transform="translateX(0%)";
         } else {
-          menu.style.display = "none";
+          menu.style.transform = "translateX(101%)";
         }
       });
     }
