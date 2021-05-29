@@ -17,7 +17,7 @@ const init = () => {
       handleDisplay();
     }
     if (toggle) {
-      toggle.addEventListner("click", (e) => {
+      toggle.addEventListener("click", (e) => {
         e.preventDefault();
         if (menu.className === "toggle-off") {
           menu.className =
