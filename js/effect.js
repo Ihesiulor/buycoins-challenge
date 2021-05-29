@@ -4,8 +4,6 @@ import {
   query,
   form,
   page,
-  result,
-  handleSubmit,
   handleDisplay,
   setResult,
 } from "./utils.js";
@@ -23,7 +21,12 @@ const init = () => {
       fetch(`.netlify/functions/node-fetch?${query.value}`)
         .then((response) => response.json())
         .then((json) => {
-          console.log({ json });
+          if (json.errors) {
+            form.action = "./404.html";
+            form.submit();
+          }
+          setResult(json);
+          form.submit();
         });
     });
   }

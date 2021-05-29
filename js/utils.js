@@ -32,64 +32,6 @@ const formatDate = (date) => {
   if (now >= month * 2) return `${Math.floor(now / month)} months ago`;
 };
 
-export const handleSubmit = (login) => {
-  const graphql = `
-    query{
-  user(login: "${login}") {
-    name
-    login
-    avatarUrl
-    bio
-    repositories(first: 20, privacy: PUBLIC, orderBy: {field: UPDATED_AT, direction: DESC}) {
-      edges {
-        node {
-          name
-          url
-          updatedAt
-          description
-          forkCount
-          stargazerCount
-          licenseInfo {
-            name
-          }
-          issues {
-            totalCount
-          }
-          pullRequests {
-            totalCount
-          }
-          primaryLanguage {
-            color
-            name
-          }
-        }
-      }
-    }
-  }
-}
-  `;
-  fetch("https://api.github.com/graphql", {
-    method: "POST",
-    body: JSON.stringify({ query: graphql }),
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  })
-    .then((res) => res.json())
-    .then((response) => {
-      if (response.errors) {
-        form.action = "/404.html";
-      }
-      setResult(response);
-    })
-    .catch((error) => {
-      console.error(error);
-    })
-    .finally(() => {
-      form.submit();
-    });
-};
-
 const repo = ({
   name,
   url,
