@@ -2,14 +2,16 @@ import {
   menu,
   toggle,
   query,
-  form,
+  formIndex,
+  formProfile,
+  formProfileMenu,
   page,
   handleDisplay,
   setResult,
 } from "./utils.js";
 
 const init = () => {
-  toggle.addEventListner("click", (e) => {
+    toggle.addEventListner("click", (e) => {
     if (menu.className === "toggle-off") {
       menu.className =
         "absolute top-0 right-0 w-4/5 h-screen flex md:hidden flex-col toggle-on bg-gray-2";
@@ -23,8 +25,8 @@ const init = () => {
       handleDisplay();
     }
   });
-  if (form) {
-    form.addEventListener("submit", (e) => {
+  if (formIndex) {
+    formIndex.addEventListener("submit", (e) => {
       e.preventDefault();
       fetch(`.netlify/functions/node-fetch?${query.value}`)
         .then((response) => response.json())
@@ -32,13 +34,51 @@ const init = () => {
           console.log(json);
           setResult(json);
           if (json.errors) {
-            form.action = "./404.html";
+            formIndex.action = "./404.html";
             return;
           }
-          form.action = "./profile.html";
+          formIndex.action = "./profile.html";
         })
         .finally(() => {
-          form.submit();
+          formIndex.submit();
+        });
+    });
+  }
+  if (formProfile) {
+    formIndex.addEventListener("submit", (e) => {
+      e.preventDefault();
+      fetch(`.netlify/functions/node-fetch?${query.value}`)
+        .then((response) => response.json())
+        .then((json) => {
+          console.log(json);
+          setResult(json);
+          if (json.errors) {
+            formProfile.action = "./404.html";
+            return;
+          }
+          formProfile.action = "./profile.html";
+        })
+        .finally(() => {
+          formProfile.submit();
+        });
+    });
+  }
+  if (formProfileMenu) {
+    formIndex.addEventListener("submit", (e) => {
+      e.preventDefault();
+      fetch(`.netlify/functions/node-fetch?${query.value}`)
+        .then((response) => response.json())
+        .then((json) => {
+          console.log(json);
+          setResult(json);
+          if (json.errors) {
+            formProfileMenu.action = "./404.html";
+            return;
+          }
+          formProfileMenu.action = "./profile.html";
+        })
+        .finally(() => {
+          formProfileMenu.submit();
         });
     });
   }

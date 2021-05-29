@@ -6,7 +6,9 @@ export let repos = document.getElementById("repos");
 export let menu = document.getElementById("menu");
 export let toggle = document.getElementById("toggle");
 export let query = document.getElementById("search");
-export let form = document.getElementById("form");
+export let formIndex = document.getElementById("form-index");
+export let formProfile = document.getElementById("form-profile");
+export let formProfileMenu = document.getElementById("form-profile-menu");
 export let page = window.location.pathname;
 export const setResult = (query) =>
   sessionStorage.setItem("query", JSON.stringify(query));
