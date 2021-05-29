@@ -18,13 +18,12 @@ const init = () => {
     }
     if (toggle) {
       toggle.addEventListener("click", (e) => {
-        e.preventDefault();
-        if (menu.className === "toggle-off") {
-          menu.className =
-            "absolute top-0 right-0 w-4/5 h-screen flex md:hidden flex-col toggle-on bg-gray-2";
+        // e.preventDefault();
+        if (menu.style.display === "none") {
+          menu.style.display = "flex";
+        } else {
+          menu.style.display = "none";
         }
-        menu.className =
-          "absolute top-0 right-0 w-4/5 h-screen flex md:hidden flex-col toggle-off bg-gray-2";
       });
     }
   });
