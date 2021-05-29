@@ -2,22 +2,29 @@ import {
   menu,
   toggle,
   query,
-  formIndex,
-  formProfile,
+  form,
   page,
   handleDisplay,
   setResult,
 } from "./utils.js";
 
 const init = () => {
+  toggle.addEventListner("click", (e) => {
+    if (menu.className === "toggle-off") {
+      menu.className =
+        "absolute top-0 right-0 w-4/5 h-screen flex md:hidden flex-col toggle-on bg-gray-2";
+    }
+    menu.className =
+      "absolute top-0 right-0 w-4/5 h-screen flex md:hidden flex-col toggle-off bg-gray-2";
+  });
   window.addEventListener("load", (e) => {
     e.preventDefault();
     if (page === "/profile.html") {
       handleDisplay();
     }
   });
-  if (formIndex) {
-    formIndex.addEventListener("submit", (e) => {
+  if (form) {
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
       fetch(`.netlify/functions/node-fetch?${query.value}`)
         .then((response) => response.json())
@@ -25,33 +32,13 @@ const init = () => {
           console.log(json);
           setResult(json);
           if (json.errors) {
-            formIndex.action = "./404.html";
+            form.action = "./404.html";
             return;
           }
-          formIndex.action = "./profile.html";
+          form.action = "./profile.html";
         })
         .finally(() => {
-          formIndex.submit();
-        });
-    });
-  }
-
-  if (formProfile) {
-    formProfile.addEventListener("submit", (e) => {
-      e.preventDefault();
-      fetch(`.netlify/functions/node-fetch?${query.value}`)
-        .then((response) => response.json())
-        .then((json) => {
-          console.log(json);
-          setResult(json);
-          if (json.errors) {
-            formProfile.action = "./404.html";
-            return;
-          }
-          formProfile.action = "./profile.html";
-        })
-        .finally(() => {
-          formProfile.submit();
+          form.submit();
         });
     });
   }
